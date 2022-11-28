@@ -12,7 +12,7 @@ col = {'black':(0,0,0), 'white': (255,255,255),
 
 
 ball = pygame.Rect(400,300,20,20)
-x_speed, y_speed = 7,7
+x_speed, y_speed = 5,5
 
 paddle1=pygame.Rect(5, 260, 15, 90)
 paddle2=pygame.Rect(780, 260, 15, 90)
