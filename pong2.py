@@ -76,17 +76,32 @@ def player_animation():
         player.top = 0
 
 def opponent_ai():
-    # General movement
-    if opponent.bottom > ball.y:
-        opponent.bottom -= opponent_speed
-    if opponent.top < ball.y:
-        opponent.top += opponent_speed
+    #if ball on opponents side
+    if ball.x < screen_width/2:
+        # General movement
+        if opponent.bottom > ball.y:
+            opponent.bottom -= opponent_speed
+        if opponent.top < ball.y:
+            opponent.top += opponent_speed
 
-    # Borders
-    if opponent.bottom >= screen_height:
-        opponent.bottom = screen_height
-    if opponent.top <= 0:
-        opponent.top = 0
+        # Borders
+        if opponent.bottom >= screen_height:
+            opponent.bottom = screen_height
+        if opponent.top <= 0:
+            opponent.top = 0
+    else:
+        while True:
+            if opponent.center[1] > screen_height / 2:
+                opponent.top -= 6
+                break
+            elif opponent.center[1] < screen_height / 2:
+                opponent.top += 6
+                break
+            break
+
+            
+       
+            
         
     
         
@@ -113,8 +128,8 @@ bg_colour = pygame.Color('gray8')
 #light_grey = (200,200,200)
 light_grey = pygame.Color('grey77')
 # Game variables
-ball_x_speed,ball_y_speed = 7*random.choice((-1,1)),7*random.choice((-1,1))
-player_speed,opponent_speed = 7,9
+ball_x_speed,ball_y_speed = 6*random.choice((-1,1)),6*random.choice((-1,1))
+player_speed,opponent_speed = 7,10
 
 # Score variables
 player_score, opponent_score = 0,0
